@@ -178,13 +178,16 @@ public class ParseEnergyBase {
 	
 	public void buildEcxelFile(){
 		excelTable = new ExcelFile();
+		excelTable.getRowArray(listOfSubstation);
 		excelTable.createTable(listOfSubstation);
+		excelTable.fillTheForm(listOfSubstation);
 		excelTable.writeToFile();
 	}
 	
 	public void buildTxtFile(){
 		txtFile = new TxtFile();
-		txtFile.createForme(listOfSubstation);
+		txtFile.fetchParagraphArray(listOfSubstation);;
+		txtFile.fillTheTxtFile(listOfSubstation);
 		txtFile.writeToFile();
 	}
 	

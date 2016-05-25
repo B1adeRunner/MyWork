@@ -12,32 +12,38 @@ import org.apache.poi.ss.usermodel.Workbook;
 public class ExcelFile{
 	private Workbook workBook = new HSSFWorkbook();
 	private Sheet sheet = workBook.createSheet();
+	private Row[] rowArray;
 	private int i=1;
 
+	public void getRowArray(List<ElectricalSubstation> listOfSubstation){
+		rowArray = new Row[listOfSubstation.size()+1];
+	}
+	
 	public void createTable(List<ElectricalSubstation> listOfSubstation){
-		Row[] rows = new Row[listOfSubstation.size()+1];
-		rows[0] = sheet.createRow(0);
-		rows[0].createCell(0).setCellValue("N");
-		rows[0].createCell(1).setCellValue("Наименование");
-		rows[0].createCell(2).setCellValue("Страна");
-		rows[0].createCell(3).setCellValue("Адрес");
-		rows[0].createCell(4).setCellValue("Рабочее напряжение");
-		rows[0].createCell(5).setCellValue("Количество силовых трансформаторов");
-		rows[0].createCell(6).setCellValue("Под контролем");
-		rows[0].createCell(7).setCellValue("Широта");
-		rows[0].createCell(8).setCellValue("Долгота");
-		
+		rowArray[0] = sheet.createRow(0);
+		rowArray[0].createCell(0).setCellValue("N");
+		rowArray[0].createCell(1).setCellValue("Наименование");
+		rowArray[0].createCell(2).setCellValue("Страна");
+		rowArray[0].createCell(3).setCellValue("Адрес");
+		rowArray[0].createCell(4).setCellValue("Рабочее напряжение");
+		rowArray[0].createCell(5).setCellValue("Количество силовых трансформаторов");
+		rowArray[0].createCell(6).setCellValue("Под контролем");
+		rowArray[0].createCell(7).setCellValue("Широта");
+		rowArray[0].createCell(8).setCellValue("Долгота");
+	}
+	
+	public void fillTheForm(List<ElectricalSubstation> listOfSubstation){
 		for(ElectricalSubstation concreteSubstation: listOfSubstation){
-			rows[i] = sheet.createRow(i);
-			rows[i].createCell(0).setCellValue(i);
-			rows[i].createCell(1).setCellValue(concreteSubstation.getName());
-			rows[i].createCell(2).setCellValue(concreteSubstation.getCountryOfSubstation());
-			rows[i].createCell(3).setCellValue(concreteSubstation.getAreaOfSubstation());
-			rows[i].createCell(4).setCellValue(concreteSubstation.getWorkingVoltage());
-			rows[i].createCell(5).setCellValue(concreteSubstation.getNumberOfPowerTransformers());
-			rows[i].createCell(6).setCellValue(concreteSubstation.getDistribution());
-			rows[i].createCell(7).setCellValue(concreteSubstation.getLatitudeOfSubstation());
-			rows[i].createCell(8).setCellValue(concreteSubstation.getLongitudeOfSubstation());
+			rowArray[i] = sheet.createRow(i);
+			rowArray[i].createCell(0).setCellValue(i);
+			rowArray[i].createCell(1).setCellValue(concreteSubstation.getName());
+			rowArray[i].createCell(2).setCellValue(concreteSubstation.getCountryOfSubstation());
+			rowArray[i].createCell(3).setCellValue(concreteSubstation.getAreaOfSubstation());
+			rowArray[i].createCell(4).setCellValue(concreteSubstation.getWorkingVoltage());
+			rowArray[i].createCell(5).setCellValue(concreteSubstation.getNumberOfPowerTransformers());
+			rowArray[i].createCell(6).setCellValue(concreteSubstation.getDistribution());
+			rowArray[i].createCell(7).setCellValue(concreteSubstation.getLatitudeOfSubstation());
+			rowArray[i].createCell(8).setCellValue(concreteSubstation.getLongitudeOfSubstation());
 			i++;
 		}
 	}

@@ -9,17 +9,29 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 public class TxtFile{
 	private XWPFDocument document = new XWPFDocument();
+	private XWPFParagraph[] paragraphArray;
 	private int i=0;
 	
-	public void createForme(List<ElectricalSubstation> listOfSubstation){
-		XWPFParagraph[] paragraphMas = new XWPFParagraph[listOfSubstation.size()+1];
+	public void fetchParagraphArray(List<ElectricalSubstation> listOfSubstation){
+		paragraphArray = new XWPFParagraph[listOfSubstation.size()+1];
+	}
+	
+	public void setParagraphArray(XWPFParagraph[] paragraphArray) {
+		this.paragraphArray = paragraphArray;
+	}
+
+	public XWPFParagraph[] getParagraphArray() {
+		return paragraphArray;
+	}
+
+	public void fillTheTxtFile(List<ElectricalSubstation> listOfSubstation){
 		for(ElectricalSubstation concreteSubstation: listOfSubstation){
-			paragraphMas[i] = document.createParagraph();
-			paragraphMas[i].createRun().setText(concreteSubstation.getName());
-			paragraphMas[i].createRun().setText(", ");
-			paragraphMas[i].createRun().setText(concreteSubstation.getLatitudeOfSubstation());
-			paragraphMas[i].createRun().setText(", ");
-			paragraphMas[i].createRun().setText(concreteSubstation.getLongitudeOfSubstation());
+			paragraphArray[i] = document.createParagraph();
+			paragraphArray[i].createRun().setText(concreteSubstation.getName());
+			paragraphArray[i].createRun().setText(", ");
+			paragraphArray[i].createRun().setText(concreteSubstation.getLatitudeOfSubstation());
+			paragraphArray[i].createRun().setText(", ");
+			paragraphArray[i].createRun().setText(concreteSubstation.getLongitudeOfSubstation());
 			i++;
 		}
 	}
