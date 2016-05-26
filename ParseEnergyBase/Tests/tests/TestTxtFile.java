@@ -47,4 +47,4 @@ public class TestTxtFile {
 			assertNotNull(txtFile.getParagraphArray()[i].getParagraphText());
 		}
 	}
-}
+} 
