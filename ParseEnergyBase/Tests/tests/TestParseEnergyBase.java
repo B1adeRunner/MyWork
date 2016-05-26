@@ -23,44 +23,11 @@ public class TestParseEnergyBase {
 	@Before
 	public void initialNeededObjects(){
 
-	
-/*	public void parsePageOfSubstationList(){
-		String firstPartOfURL = "http://energybase.ru/substation/index?page=";
-		String secondPartOfURL = new String(countOfPage.toString());
-		try {
-			pageOfSubstationList = Jsoup.connect(firstPartOfURL.concat(secondPartOfURL).toString()).get();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		elemWithNeededSubstring = pageOfSubstationList.getElementsByAttributeValueContaining("class", "icon substation");
-	}*/
-	
-/*	@Test
-	public void testIsParseEnergyBaseCreated(){
-		assertNotEquals(null, );
-	}	
-	
 	@Test
-	public void testIsListOfSubstationCreated(){
-		assertNotEquals(null, );
-	}*/	
-	
-/*	@Test
-	public void testIsSecondPartOfURLCreated(){
-		assertNotEquals(null, secondPartOfURL);
-	}	
-	
-	@Test
-	public void testIsParseEnergyBaseCreated(){
-		assertNotEquals(null, parseEnergyBase);
-	}	
-	
-	@Test
-	public void testIsParseEnergyBaseCreated(){
-		assertNotEquals(null, parseEnergyBase);*/
-	}	
-	
-	
+	public void test(){
+		//fail("bla-bla-bla");
+	}
+		
 	@After
 	public void destroyAllObjects(){
 		
