@@ -25,7 +25,7 @@ public class TestParseEnergyBase {
 
 	@Test
 	public void test(){
-		//fail("bla-bla-bla");
+		//fail("bla-bla-bla"); 
 	}
 		
 	@After
