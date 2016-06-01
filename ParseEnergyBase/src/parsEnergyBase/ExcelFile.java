@@ -22,14 +22,14 @@ public class ExcelFile{
 	public void createTable(List<ElectricalSubstation> listOfSubstation){
 		rowArray[0] = sheet.createRow(0);
 		rowArray[0].createCell(0).setCellValue("N");
-		rowArray[0].createCell(1).setCellValue("Наименование");
-		rowArray[0].createCell(2).setCellValue("Страна");
-		rowArray[0].createCell(3).setCellValue("Адрес");
-		rowArray[0].createCell(4).setCellValue("Рабочее напряжение");
-		rowArray[0].createCell(5).setCellValue("Количество силовых трансформаторов");
-		rowArray[0].createCell(6).setCellValue("Под контролем");
-		rowArray[0].createCell(7).setCellValue("Широта");
-		rowArray[0].createCell(8).setCellValue("Долгота");
+		rowArray[0].createCell(1).setCellValue("Name");
+		rowArray[0].createCell(2).setCellValue("Substation country");
+		rowArray[0].createCell(3).setCellValue("Substation area");
+		rowArray[0].createCell(4).setCellValue("Working voltage");
+		rowArray[0].createCell(5).setCellValue("Number of power transformers");
+		rowArray[0].createCell(6).setCellValue("Distribution");
+		rowArray[0].createCell(7).setCellValue("Latitude of substation");
+		rowArray[0].createCell(8).setCellValue("Longitude of substation");
 	}
 	
 	public void fillTheForm(List<ElectricalSubstation> listOfSubstation){
