@@ -34,7 +34,7 @@ public class MenuWindow extends Observable implements Observer {
 		buildButtonFileChooser();
 		registrationObservableObject();
 		buildMenuPanel();
-		setMenuInitialLocation();
+		setMenuWindowInitialLocation();
 		buildMenu();
 
 	}
@@ -91,7 +91,7 @@ public class MenuWindow extends Observable implements Observer {
 		}
 	}
 	
-	private void setMenuInitialLocation(){
+	private void setMenuWindowInitialLocation(){
 		menu.setLocation((int)(sizeScreen.getWidth() - menu.getSize().getWidth())/2,
 				(int)(sizeScreen.height - menu.getSize().getHeight())/3);
 	}

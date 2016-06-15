@@ -21,7 +21,7 @@ public class AnswerWindow {
 	public void compile(){
 		createNecessaryObjects();
 		buildAnswerWindowPanel();
-		setMenuInitialLocation();
+		setAnswerWindowInitialLocation();
 		buildAnswerWindow();
 	}
 	
@@ -51,7 +51,7 @@ public class AnswerWindow {
 		answerTextArea.setText(answer);
 	}
 	
-	private void setMenuInitialLocation(){
+	private void setAnswerWindowInitialLocation(){
 		answerWindow.setLocation((int)(sizeScreen.getWidth() - answerWindow.getSize().getWidth())/2,
 				(int)(sizeScreen.height - answerWindow.getSize().getHeight())/3);
 	}
