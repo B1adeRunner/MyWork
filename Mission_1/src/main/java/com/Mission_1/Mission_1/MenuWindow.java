@@ -23,14 +23,18 @@ public class MenuWindow extends Observable implements Observer {
 	private JLabel menuLabel;
 	private File targetFile;
 	private String filePath;
-	private Dimension sizeScreen;
+	private Dimension screenSize;
+	private int screenWidth;
+	private int screenHeight;
+	private int menuWindowWidth;
+	private int menuWindowHeight;
 	
 	public MenuWindow(){
 		
 	}
 	
 	public void compile(){
-		createNecessaryObjects();
+		initializeNecessaryObjects();
 		buildButtonFileChooser();
 		registrationObservableObject();
 		buildMenuPanel();
@@ -48,11 +52,31 @@ public class MenuWindow extends Observable implements Observer {
 	}
 	
 	private void buildMenu(){
+		setMenuDefaultCloseOperation();
+		setMenuWindowSize();
+		setMenuWindowResizable();
+		addMenuPanelToMenuWindow();
+		setMenuWindowVisible();
+	}
+	
+	private void setMenuDefaultCloseOperation(){
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private void setMenuWindowSize(){
 		menu.setSize(150, 95);
+	}
+	
+	private void setMenuWindowResizable(){
 		menu.setResizable(false);
-		menu.add(menuPanel);
+	}
+	
+	private void setMenuWindowVisible(){
 		menu.setVisible(true);
+	}
+
+	private void addMenuPanelToMenuWindow(){
+		menu.add(menuPanel);
 	}
 	
 	private void buildMenuPanel(){
@@ -60,14 +84,18 @@ public class MenuWindow extends Observable implements Observer {
 		menuPanel.add(buttonFileChooser);
 	}
 	
-	private void createNecessaryObjects(){
+	private void initializeNecessaryObjects(){
 		menu = new JFrame();
 		fileChooser = new JFileChooser();
 		menuPanel = new JPanel();
 		buttonFileChooser = new JButton("выбрать");
 		fileChooserListener = new FileChooserListener();
 		menuLabel = new JLabel("Выберите файл");
-		sizeScreen = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenWidth = (int)screenSize.getWidth();
+		screenHeight = (int)screenSize.getHeight();
+		menuWindowWidth = (int)menu.getSize().getWidth();
+		menuWindowHeight = (int)menu.getSize().getHeight();
 	}
 	
 	public FileChooserListener getFileChooserListener() {
@@ -92,8 +120,7 @@ public class MenuWindow extends Observable implements Observer {
 	}
 	
 	private void setMenuWindowInitialLocation(){
-		menu.setLocation((int)(sizeScreen.getWidth() - menu.getSize().getWidth())/2,
-				(int)(sizeScreen.height - menu.getSize().getHeight())/3);
+		menu.setLocation((screenWidth - menuWindowWidth)/2, (screenHeight - menuWindowHeight)/3);
 	}
 
 	public String getFilePath() {
