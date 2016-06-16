@@ -22,9 +22,10 @@ public class Controller implements Observer {
 			startDataCollector();
 			startGaussMethod();
 		}else
-			if(o.getClass().equals(gaussMethodEquationsSystemSolution.getClass()))
+			if(o.getClass().equals(gaussMethodEquationsSystemSolution.getClass())){
 				answerWindow.compile();
 				answerWindow.buildAnswerTextArea(gaussMethodEquationsSystemSolution.getAnswer().toString());
+			}
 	}
 	
 	public void openGui() {

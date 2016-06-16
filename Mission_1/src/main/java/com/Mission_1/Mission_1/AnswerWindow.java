@@ -12,7 +12,11 @@ public class AnswerWindow {
 	private JPanel answerWindowPanel;
 	private JLabel answerWindowLabel;
 	private JTextArea answerTextArea;
-	private Dimension sizeScreen;
+	private Dimension screenSize;
+	private int screenWidth;
+	private int screenHeight;
+	private int answerWindowWidth;
+	private int answerWindowHeight;
 	
 	public AnswerWindow(){
 		
@@ -26,10 +30,30 @@ public class AnswerWindow {
 	}
 	
 	private void buildAnswerWindow(){
+		setAnswerWindowDefaultCloseOperation();
+		setAnswerWindowSize();
+		setAnswerWindowResizable();
+		addAnswerWindowPanelToAnswerWindow();
+		setAnswerWindowVisible();
+	}
+	
+	private void setAnswerWindowDefaultCloseOperation(){
 		answerWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private void setAnswerWindowSize(){
 		answerWindow.setSize(350, 350);
+	}
+	
+	private void setAnswerWindowResizable(){
 		answerWindow.setResizable(true);
+	}
+	
+	private void addAnswerWindowPanelToAnswerWindow(){
 		answerWindow.add(answerWindowPanel);
+	}
+	
+	private void setAnswerWindowVisible(){
 		answerWindow.setVisible(true);
 	}
 	
@@ -44,7 +68,11 @@ public class AnswerWindow {
 		answerWindowPanel = new JPanel();
 		answerTextArea = new JTextArea();
 		answerWindowLabel = new JLabel("Решение СЛАУ:");
-		sizeScreen = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenWidth = (int)screenSize.getWidth();
+		screenHeight = (int)screenSize.getHeight();
+		answerWindowWidth = (int)answerWindow.getSize().getWidth();
+		answerWindowHeight = (int)answerWindow.getSize().getHeight();
 	}
 	
 	public void buildAnswerTextArea(String answer){
@@ -52,7 +80,6 @@ public class AnswerWindow {
 	}
 	
 	private void setAnswerWindowInitialLocation(){
-		answerWindow.setLocation((int)(sizeScreen.getWidth() - answerWindow.getSize().getWidth())/2,
-				(int)(sizeScreen.height - answerWindow.getSize().getHeight())/3);
+		answerWindow.setLocation((screenWidth - answerWindowWidth)/2, (screenHeight - answerWindowHeight)/3);
 	}
 }
