@@ -20,7 +20,8 @@ public class GaussMethodEquationsSystemSolution extends Observable implements Eq
 	}
 	
  	private void addTheMatrixToTheAnswer(){
-		for(float[] array: dataSource) {
+ 		answer.append("\n");
+ 		for(float[] array: dataSource) {
  			for(float value: array){
  				answer.append(value + "   ");
  			}
@@ -74,7 +75,7 @@ public class GaussMethodEquationsSystemSolution extends Observable implements Eq
 	
 	private void addTargetVariablesToTheAnswer(){
 		int i=0;
- 		for (float value: arrayOfFreeMembers) {
+		for (float value: arrayOfFreeMembers) {
  			answer.append("\n").append("x"+i+" = "+value);
  			i++;
  		}

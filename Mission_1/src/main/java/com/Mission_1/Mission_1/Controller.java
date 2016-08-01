@@ -2,13 +2,15 @@ package com.Mission_1.Mission_1;
 
 import java.util.Observable;
 import java.util.Observer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 public class Controller implements Observer {
 	private MenuWindow menuWindow;
 	private DataCollector dataCollector;
 	private GaussMethodEquationsSystemSolution gaussMethodEquationsSystemSolution;
 	private AnswerWindow answerWindow;
-
+	
 	public Controller() {
 		menuWindow = new MenuWindow();
 		dataCollector = new DataCollector();

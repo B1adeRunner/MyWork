@@ -42,7 +42,7 @@ public class AnswerWindow {
 	}
 	
 	private void setAnswerWindowSize(){
-		answerWindow.setSize(350, 350);
+		answerWindow.setSize(360, 360);
 	}
 	
 	private void setAnswerWindowResizable(){

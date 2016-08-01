@@ -112,7 +112,6 @@ public class MenuWindow extends Observable implements Observer {
 			fileChooser.showOpenDialog(fileChooser);
 			targetFile = fileChooser.getSelectedFile();
 			filePath = targetFile.getPath();
-			System.out.println(filePath);
 			setChanged();
 			notifyObservers();
 			menu.dispose();
